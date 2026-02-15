@@ -5,6 +5,7 @@ import 'dart:io';
 import '../../models/post_model.dart';
 import '../../controllers/feed_controller.dart';
 import 'comment_bottom_sheet.dart';
+import 'social_text_widget.dart';
 
 class PostCard extends StatelessWidget {
   final PostModel post;
@@ -113,6 +114,7 @@ class PostCard extends StatelessWidget {
                     }
                   },
                   itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                     // ignore: prefer_const_constructors
                      PopupMenuItem<String>(
                       value: 'delete',
                       child: Row(
@@ -130,7 +132,7 @@ class PostCard extends StatelessWidget {
             const SizedBox(height: 12),
             // Content
             if (post.content.isNotEmpty)
-              Text(
+              SocialTextWidget(
                 post.content,
                 style: const TextStyle(
                     fontSize: 16, height: 1.5, color: Colors.black87),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../controllers/feed_controller.dart';
 import '../../models/post_model.dart';
 import 'package:intl/intl.dart';
+import 'social_text_widget.dart';
 
 class CommentBottomSheet extends StatelessWidget {
   final PostModel post;
@@ -23,7 +24,10 @@ class CommentBottomSheet extends StatelessWidget {
       ),
       decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        boxShadow: [
+          BoxShadow(color: Color(0x1A000000), blurRadius: 10, spreadRadius: 0),
+        ],
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -116,7 +120,7 @@ class CommentBottomSheet extends StatelessWidget {
                                     ],
                                   ),
                                   const SizedBox(height: 4),
-                                  Text(
+                                  SocialTextWidget(
                                     comment.content,
                                     style: const TextStyle(fontSize: 14),
                                   ),

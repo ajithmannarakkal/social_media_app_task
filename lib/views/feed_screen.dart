@@ -24,12 +24,7 @@ class FeedScreen extends StatelessWidget {
                 style: TextStyle(letterSpacing: -1),
               ),
               centerTitle: false,
-              actions: [
-                IconButton(
-                  icon: const Icon(Icons.notifications_none_rounded),
-                  onPressed: () {},
-                ),
-              ],
+
             ),
             if (controller.isLoading.value)
               const SliverFillRemaining(
