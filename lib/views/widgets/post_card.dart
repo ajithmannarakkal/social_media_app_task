@@ -104,10 +104,26 @@ class PostCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.more_horiz),
-                  color: Colors.grey.shade600,
-                  onPressed: () {},
+                PopupMenuButton<String>(
+                  icon: Icon(Icons.more_horiz, color: Colors.grey.shade600),
+                  onSelected: (value) {
+                    if (value == 'delete') {
+                      // Confirm dialog could be added here, but direct delete for now
+                      controller.deletePost(post.id);
+                    }
+                  },
+                  itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                     PopupMenuItem<String>(
+                      value: 'delete',
+                      child: Row(
+                        children: const [
+                          Icon(Icons.delete_outline, color: Colors.red, size: 20),
+                          SizedBox(width: 8),
+                          Text('Delete Post', style: TextStyle(color: Colors.red)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -227,11 +243,7 @@ class PostCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Spacer(),
-                IconButton(
-                  icon: Icon(Icons.share_outlined, color: Colors.grey.shade700, size: 22),
-                  onPressed: () {},
-                ),
+                // Share button removed as requested
               ],
             ),
           ],

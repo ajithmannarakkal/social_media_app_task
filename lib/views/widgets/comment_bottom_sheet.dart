@@ -15,6 +15,9 @@ class CommentBottomSheet extends StatelessWidget {
     final FeedController feedController = Get.find<FeedController>();
 
     return Container(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.75,
+      ),
       padding: EdgeInsets.only(
         bottom: MediaQuery.of(context).viewInsets.bottom,
       ),
@@ -159,13 +162,13 @@ class CommentBottomSheet extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                IconButton(
-                  onPressed: () {
+                  IconButton(
+                  onPressed: () async {
                     final content = _commentController.text.trim();
                     if (content.isNotEmpty) {
-                      feedController.addComment(post.id, content);
+                      await feedController.addComment(post.id, content);
                       _commentController.clear();
-                      // Close keyboard? maybe not, to allow multiple comments
+                      Get.back(); // Close the bottom sheet
                     }
                   },
                   icon: const Icon(Icons.send, color: Colors.blue),

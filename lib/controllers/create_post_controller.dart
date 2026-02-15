@@ -5,9 +5,10 @@ import 'package:uuid/uuid.dart';
 import '../models/post_model.dart';
 import '../services/hive_service.dart';
 import 'feed_controller.dart';
+import 'social_text_controller.dart';
 
 class CreatePostController extends GetxController {
-  final TextEditingController textController = TextEditingController();
+  final TextEditingController textController = SocialTextEditingController();
   // Suggestions
   final RxList<String> suggestions = <String>[].obs;
   final RxBool showSuggestions = false.obs;

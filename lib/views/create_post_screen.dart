@@ -244,13 +244,9 @@ class CreatePostScreen extends StatelessWidget {
           
           // Bottom Toolbar
           Container(
-            padding: EdgeInsets.only(
-              left: 16, 
-              right: 16, 
-              top: 12, 
-              bottom: MediaQuery.of(context).viewInsets.bottom + 12
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: const BoxDecoration(
+              color: Colors.white,
               border: Border(top: BorderSide(color: Color(0xFFEEEEEE))),
             ),
             child: Row(
@@ -266,18 +262,6 @@ class CreatePostScreen extends StatelessWidget {
                 IconButton(
                   onPressed: controller.pickMedia,
                   icon: const Icon(Icons.image_outlined, color: Colors.blue, size: 28),
-                ),
-                IconButton(
-                  onPressed: () {}, // Mock GIF
-                  icon: const Icon(Icons.gif_box_outlined, color: Colors.blue, size: 28),
-                ),
-                IconButton(
-                  onPressed: () {}, // Mock Poll
-                  icon: const Icon(Icons.poll_outlined, color: Colors.blue, size: 28),
-                ),
-                IconButton(
-                  onPressed: () {}, // Mock Location
-                  icon: const Icon(Icons.location_on_outlined, color: Colors.blue, size: 28),
                 ),
                 const Spacer(),
                  // Char count mock

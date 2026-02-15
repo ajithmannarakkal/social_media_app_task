@@ -60,5 +60,10 @@ class FeedController extends GetxController {
     }
     loadPosts();
   }
+
+  Future<void> deletePost(String postId) async {
+    await HiveService.deletePost(postId);
+    loadPosts();
+  }
 }
 
